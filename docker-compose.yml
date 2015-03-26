@@ -7,6 +7,7 @@ kegbot:
     - appdata
   environment:
     KEGBOT_DEBUG: true
+    KEGBOT_DB_PASS: kebgot-db-pass
 nginx:
   build: ./nginx
   links:
@@ -16,9 +17,11 @@ nginx:
   ports:
     - 80:80 # NOTE: this needs to change if you want to run multi-tenant on a single node
 mysql:
-  image: orchardup/mysql
+  image: mysql:5.5
   volumes_from:
     - mysqldata
+  environment:
+    MYSQL_ROOT_PASSWORD: kebgot-db-pass
 redis:
   image: redis
 mysqldata:
