@@ -3,6 +3,11 @@
 Docker support for Kegbot.  Bit of a work in progress.
 
 ## Quick start
+```
+  ### Uses Docker-compose to bring up the entire stack together, using a data volume for holding static data
+  docker-compose up
+```
+
 
 ```
 ### Create the data directory somewhere on the host.

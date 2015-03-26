@@ -85,7 +85,7 @@ _dbhost = os.environ["KEGBOT_DB_HOST"]
 _dbport = os.environ.get("KEGBOT_DB_PORT", 3306)
 _dbname = os.environ.get("KEGBOT_DB_NAME", "kegbot")
 _dbuser = os.environ.get("KEGBOT_DB_USER", "root")
-_dbpass = os.environ.get("KEGBOT_DB_PASSWORD", None)
+_dbpass = os.environ.get("KEGBOT_DB_PASS", None)
 
 DATABASES = {
     "default": {

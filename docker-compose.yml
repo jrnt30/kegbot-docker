@@ -1,0 +1,31 @@
+kegbot:
+  build: ./server
+  links:
+    - mysql
+    - redis
+  volumes_from:
+    - appdata
+  environment:
+    KEGBOT_DEBUG: true
+nginx:
+  build: ./nginx
+  links:
+    - kegbot:kegbot-server
+  volumes_from:
+    - appdata
+  ports:
+    - 80:80 # NOTE: this needs to change if you want to run multi-tenant on a single node
+mysql:
+  image: orchardup/mysql
+  volumes_from:
+    - mysqldata
+redis:
+  image: redis
+mysqldata:
+  image: busybox
+  volumes:
+    - /var/lib/mysql
+appdata:
+  image: busybox
+  volumes:
+    - /kegbot-data

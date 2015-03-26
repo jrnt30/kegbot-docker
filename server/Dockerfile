@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM ubuntu:latest
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
     gcc \
