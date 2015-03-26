@@ -56,7 +56,7 @@ setup_env() {
 }
 
 wait_for_mysql() {
-  sleep 3
+  nc -z $KEGBOT_DB_HOST $KEGBOT_DB_PORT || sleep 3
   if ! do_mysql "${KEGBOT_DB_NAME}" -e "show tables"; then
     do_mysql -e "create database ${KEGBOT_DB_NAME};"
     kegbot migrate --noinput -v 0
