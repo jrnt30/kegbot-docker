@@ -15,7 +15,7 @@ nginx:
   volumes_from:
     - appdata
   ports:
-    - 80:80 # NOTE: this needs to change if you want to run multi-tenant on a single node
+    - 80
 mysql:
   image: mysql:5.5
   volumes_from:
